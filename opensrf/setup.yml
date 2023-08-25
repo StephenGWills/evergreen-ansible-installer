@@ -36,9 +36,15 @@
     dest: /home/opensrf/.bashrc
     regexp: '^export LD_LIBRARY_PATH=' 
     line: 'export LD_LIBRARY_PATH="{{eg_install_path}}/lib:/usr/local/lib:/usr/local/lib/dbd:$LD_LIBRARY_PATH"'
-- name: Add public/private jabber hosts to /etc/hosts
+- name: Add private jabber host to /etc/hosts
+  become: true
+  lineinfile:
+    dest: /etc/hosts
+    regexp: '^{{jabber_domain_pri_addr}} private'
+    line: '{{jabber_domain_pri_addr}} private.{{jabber_domain}}'
+- name: Add public jabber hosts to /etc/hosts
   become: true
   lineinfile: 
     dest: /etc/hosts
-    regexp: '^{{jabber_domain_addr}} public'
-    line: '{{jabber_domain_addr}} public.{{jabber_domain}} private.{{jabber_domain}}'
+    regexp: '^{{jabber_domain_pub_addr}} public'
+    line: '{{jabber_domain_pub_addr}} public.{{jabber_domain}}'

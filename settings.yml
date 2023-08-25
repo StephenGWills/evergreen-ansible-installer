@@ -37,7 +37,8 @@ eg_admin_pass: demo123
 
 ejabberd_password: password
 jabber_domain: localhost
-jabber_domain_addr: 127.0.1.2
+jabber_domain_pub_addr: 127.0.1.2
+jabber_domain_pri_addr: 127.0.1.3
 
 # Host domain used by web clients.
 # TODO add to apache eg.conf ServerName
