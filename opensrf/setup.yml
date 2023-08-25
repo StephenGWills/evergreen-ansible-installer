@@ -41,10 +41,10 @@
   lineinfile:
     dest: /etc/hosts
     regexp: '^{{jabber_domain_pri_addr}} private'
-    line: '{{jabber_domain_pri_addr}} private.{{jabber_domain}}'
+    line: '{{jabber_domain_pri_addr}} private.{{jabber_domain}} private'
 - name: Add public jabber hosts to /etc/hosts
   become: true
   lineinfile: 
     dest: /etc/hosts
     regexp: '^{{jabber_domain_pub_addr}} public'
-    line: '{{jabber_domain_pub_addr}} public.{{jabber_domain}}'
+    line: '{{jabber_domain_pub_addr}} public.{{jabber_domain}}  public'
