@@ -1,3 +1,5 @@
+- name: setup our opensrf user
+  include: setup.yml
 - name: Download our Evergreen repository
   include: eg-fetch.yml
   when: locale is defined
