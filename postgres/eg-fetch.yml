@@ -1,0 +1,11 @@
+- name: Checkout Evergreen Repository
+  git:
+    repo: "{{eg_git_repository}}"
+    dest: "{{repo_base}}/Evergreen"
+    depth: "{{eg_clone_depth}}"
+    version: "{{eg_git_branch}}"
+    force: "{{force_git_checkout}}"
+  become: true
+  become_user: opensrf
+  when: perform_git_checkout
+

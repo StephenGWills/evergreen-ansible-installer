@@ -1,0 +1,10 @@
+# Database translations
+- name: Install "{{ locale }}" locale(s) in database
+  with_items: "{{ locale }}"
+  when: locale is defined
+  become: true
+  become_user: postgres
+  shell: >
+    cd {{repo_base}}/Evergreen/Open-ILS/src/sql/Pg
+    && psql -d {{database_database}} -f 950.data.seed-values-{{ item }}.sql
+

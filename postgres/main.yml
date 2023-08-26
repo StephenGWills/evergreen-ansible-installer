@@ -1,0 +1,9 @@
+- name: Download our Evergreen repository
+  include: eg-fetch.yml
+  when: locale is defined
+- name: Install Database
+  include: database.yml
+  when: install_database | bool
+- name: Setup translations
+  include: setup-db-translations.yml
+  when: locale is defined
