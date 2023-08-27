@@ -1,3 +1,9 @@
+- name: Install sysutils
+  become: true
+  apt: name=make state=present
+  with_items:
+    - make
+    - git
 - name: Create opensrf user
   become: true
   user:
